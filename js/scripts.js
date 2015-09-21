@@ -27,17 +27,17 @@ $(document).ready(function() {
       var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
       newContact.addresses.push(newAddress);
     }); //end of $("form#new-place").submit(function(event)
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.spot + "</span></li>");
-    $(".contact").last().click(function() {
-      $("#show-contact").show();
-      $("#show-contact h2").text(newContact.spot);
+    $("ul#places").append("<li><span class='place'>" + newContact.spot + "</span></li>");
+    $(".place").last().click(function() {
+      $("#show-place").show();
+      $("#show-place h2").text(newContact.spot);
       $(".location").text(newContact.location);
       $(".spot").text(newContact.spot);
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
         $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
       });//end of newContact.addresses.forEach(function(address)
-    }); //end of $(".contact").last().click(function()
+    }); //end of $(".place").last().click(function()
     $("input#new-location").val("");
     $("input#new-spot").val("");
     $("input.new-street").val("");
