@@ -38,19 +38,13 @@ $(document).ready(function() {
       newContact.addresses.push(newAddress);
     }); //end of .new-address.each
 
-
     //for each
     $(".new-landmark").each(function() {
         var inputtedLandmark = $(this).find("input.new-landmark-thingy").val();
-
-        var newLand = { street: inputtedLandmark };
+        //Note: The variable landmarkName cannot have dashes in it.
+        var newLand = { landmarkName: inputtedLandmark };
         newContact.landmarks.push(newLand);
-
-        //var newLandmark = { landmark-name: inputtedLandmark, landmark-date: "Squrrel"};
-      //  var newLandmarkeee = { landmark-namy: inputtedLandmark };
-      //  newContact.landmarks.push(newLandmark);
     });
-
 
     $("ul#places").append("<li><span class='place'>" + newContact.spot + "</span></li>");
     $(".place").last().click(function() {
@@ -63,13 +57,13 @@ $(document).ready(function() {
         $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
       });//end of newContact.addresses.forEach(function(address)
 
-/*
+
       $("ul#landmarks").text("");
       newContact.landmarks.forEach(function(landmark) {
-        $("ul#landmarks").append("<li>" + landmark.landmark-name + "</li>");
+        $("ul#landmarks").append("<li>" + landmark.landmarkName + "</li>");
       });
 
-      */
+
 
     }); //end of $(".place").last().click(function()
     $("input#new-location").val("");
