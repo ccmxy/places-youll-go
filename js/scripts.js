@@ -8,11 +8,11 @@ $(document).ready(function() {
                                  );
   });//end of $("#add-landmark").click(function()
 
-  $("#add-landmark2").click(function() {
-    $("#new-landmark2").append('<div class="new-landmark2">' +
+  $("#add-time").click(function() {
+    $("#new-time").append('<div class="new-time">' +
                                  '<div class="form-group">' +
-                                   '<label for="new-landmark2-thingy">Landmark2</label>' +
-                                   '<input type="text" class="form-control new-landmark2-thingy">' +
+                                   '<label for="new-time-thingy">Time</label>' +
+                                   '<input type="text" class="form-control new-time-thingy">' +
                                  '</div>'
                                  );
   });//end of $("#add-landmark").click(function()
@@ -22,7 +22,7 @@ $(document).ready(function() {
     event.preventDefault();
     var inputtedLocation = $("input#new-location").val();
     var inputtedSpot = $("input#new-spot").val();
-    var newPlace = { location: inputtedLocation, spot: inputtedSpot, landmarks: [], landmark2s: [] };
+    var newPlace = { location: inputtedLocation, spot: inputtedSpot, landmarks: [], times: [] };
 
     //for each
     $(".new-landmark").each(function() {
@@ -32,11 +32,11 @@ $(document).ready(function() {
         newPlace.landmarks.push(newLand);
     });
 
-    $(".new-landmark2").each(function() {
-        var inputtedLandmark2 = $(this).find("input.new-landmark2-thingy").val();
+    $(".new-time").each(function() {
+        var inputtedTime = $(this).find("input.new-time-thingy").val();
         //Note: The variable landmarkName cannot have dashes in it.
-        var newLand2 = { landmark2Name: inputtedLandmark2 };
-        newPlace.landmark2s.push(newLand2);
+        var newLand2 = { timeName: inputtedTime };
+        newPlace.times.push(newLand2);
     });
 
     $("ul#places").append("<li><span class='place'>" + newPlace.spot + "</span></li>");
@@ -51,9 +51,9 @@ $(document).ready(function() {
         $("ul#landmarks").append("<li>" + landmark.landmarkName + "</li>");
       });
 
-      $("ul#landmark2s").text("");
-      newPlace.landmark2s.forEach(function(landmark2) {
-        $("ul#landmark2s").append("<li>" + landmark2.landmark2Name + "</li>");
+      $("ul#times").text("");
+      newPlace.times.forEach(function(time) {
+        $("ul#times").append("<li>" + time.timeName + "</li>");
       });
 
 
@@ -62,7 +62,7 @@ $(document).ready(function() {
     $("input#new-location").val("");
     $("input#new-spot").val("");
     $("input.new-landmark-thingy").val("");
-    $("input.new-landmark2-thingy").val("");
+    $("input.new-time-thingy").val("");
 
   }); //end of $("form#new-place").submit(function(event)
 }); //end of $(document).ready(function()
