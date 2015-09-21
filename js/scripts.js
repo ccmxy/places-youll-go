@@ -29,6 +29,7 @@ $(document).ready(function() {
     var inputtedLocation = $("input#new-location").val();
     var inputtedSpot = $("input#new-spot").val();
     var newContact = { location: inputtedLocation, spot: inputtedSpot, addresses: [], landmarks: [] };
+
     $(".new-address").each(function() {
       var inputtedStreet = $(this).find("input.new-street").val();
       var inputtedCity = $(this).find("input.new-city").val();
@@ -37,14 +38,18 @@ $(document).ready(function() {
       newContact.addresses.push(newAddress);
     }); //end of .new-address.each
 
-/*
+
     //for each
     $(".new-landmark").each(function() {
         var inputtedLandmark = $(this).find("input.new-landmark-thingy").val();
-        var newLandmark = { landmark-name: inputtedLandmark };
-        newContact.landmarks.push(newLandmark);
+
+        var newAddress = { street: inputtedLandmark };
+
+        //var newLandmark = { landmark-name: inputtedLandmark, landmark-date: "Squrrel"};
+      //  var newLandmarkeee = { landmark-namy: inputtedLandmark };
+      //  newContact.landmarks.push(newLandmark);
     });
-    */
+
 
     $("ul#places").append("<li><span class='place'>" + newContact.spot + "</span></li>");
     $(".place").last().click(function() {
