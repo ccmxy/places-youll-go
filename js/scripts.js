@@ -43,7 +43,8 @@ $(document).ready(function() {
     $(".new-landmark").each(function() {
         var inputtedLandmark = $(this).find("input.new-landmark-thingy").val();
 
-        var newAddress = { street: inputtedLandmark };
+        var newLand = { street: inputtedLandmark };
+        newContact.landmarks.push(newLand);
 
         //var newLandmark = { landmark-name: inputtedLandmark, landmark-date: "Squrrel"};
       //  var newLandmarkeee = { landmark-namy: inputtedLandmark };
