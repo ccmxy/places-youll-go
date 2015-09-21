@@ -18,8 +18,8 @@ $(document).ready(function() {
   $("form#new-place").submit(function(event) {
     event.preventDefault();
     var inputtedLocation = $("input#new-location").val();
-    var inputtedLastName = $("input#new-last-name").val();
-    var newContact = { location: inputtedLocation, lastName: inputtedLastName, addresses: [] };
+    var inputtedSpot = $("input#new-spot").val();
+    var newContact = { location: inputtedLocation, spot: inputtedSpot, addresses: [] };
     $(".new-address").each(function() {
       var inputtedStreet = $(this).find("input.new-street").val();
       var inputtedCity = $(this).find("input.new-city").val();
@@ -27,19 +27,19 @@ $(document).ready(function() {
       var newAddress = { street: inputtedStreet, city: inputtedCity, state: inputtedState };
       newContact.addresses.push(newAddress);
     }); //end of $("form#new-place").submit(function(event)
-    $("ul#contacts").append("<li><span class='contact'>" + newContact.location + "</span></li>");
+    $("ul#contacts").append("<li><span class='contact'>" + newContact.spot + "</span></li>");
     $(".contact").last().click(function() {
       $("#show-contact").show();
-      $("#show-contact h2").text(newContact.location);
+      $("#show-contact h2").text(newContact.spot);
       $(".location").text(newContact.location);
-      $(".last-name").text(newContact.lastName);
+      $(".spot").text(newContact.spot);
       $("ul#addresses").text("");
       newContact.addresses.forEach(function(address) {
         $("ul#addresses").append("<li>" + address.street + ", " + address.city + ", " + address.state + "</li>");
       });//end of newContact.addresses.forEach(function(address)
     }); //end of $(".contact").last().click(function()
     $("input#new-location").val("");
-    $("input#new-last-name").val("");
+    $("input#new-spot").val("");
     $("input.new-street").val("");
     $("input.new-city").val("");
     $("input.new-state").val("");
